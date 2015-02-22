@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Práctica validación formularios</title>
     <meta name="description" content="">
@@ -9,87 +10,198 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- endbuild     -->
     <link rel="stylesheet" href="styles/main.css">
+
     <!-- endbuild -->
-  </head>
+</head>
+
 <body>
 
+    <div id="contenedor">
 
 
-<div class="hero-unit">
-    <h3 class="text-success text-c">Práctica validación formularios</h3>
-    <form id="formulario" class="form-horizontal" action="alta.php" method="post" novalidate>
-        <div <div class="panel panel-default panel-success">
-            <div class="panel-heading">
-                <h3 class="panel-title">Título del panel con estilo h3</h3>
-            </div>
-            <div class="panel-body ">
-                 <div class="form-group ">
-                    <label class="text-success col-sm-2 control-label">Nombre:</label>
-                    <div class=" col-sm-8">
-                    <input type="text" class="form-control" id="nombre" name="nombre"placeholder="Nombre">
-                    </div>
-                </div>
+        <div id="cabeza" class="contact_form">
 
-                <div class="form-group">
-                    <label class="text-success col-sm-2 control-label">Apellido:</label>
-                     <div class=" col-sm-8">
-                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
-                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="text-success col-sm-2 control-label">Teléfono:</label>
-                     <div class=" col-sm-8">
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
-                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="text-success col-sm-2 control-label">Email:</label>
-                     <div class=" col-sm-8">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo electronico">
-                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="text-success col-sm-2 control-label">Otra vez el Email:</label>
-                     <div class=" col-sm-8">
-                    <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Repite el correo electronico">
-                     </div>
-                </div>
-
-            </div>
-
-          <div class="panel-body ">
-                              
-                    <button type="submit" class="btn btn-default boton">Alta</button>
-           </div>
+            <h2>Práctica validación formulario</h2>
+            <span class="minombre titulo">Luis Álvarez Romero</span>
         </div>
-    
+        <form id="formulario" class="contact_form" novalidate action="accion.php" method="post">
 
-</form>
-    <div>
-        <p class="text-center"><a href="https://github.com/chuison/practica-validacion-formularios"> Aquí</a> esta la versión de desarrollo en GitHub</p>
+            
+       
+        <form id="formulario" class="contact_form" action="#" id="contact_form" runat="server">
+            <fieldset>
+                <legend class="titulo">
+                    <h2> Información de contacto </h2>
+                </legend>
+                <ul>
+                    <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
+                    <li>
+                        <label for="name">Nombre</label>
+                        <input type="text" name="nombre" placeholder="Nombre" pattern="[A-Za-z]+" required />
+                        <span class="form_hint">Introduce texto</span>
+                    </li>
+                    <li>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido" placeholder="Apellido" pattern="[A-Za-z]+" required /><span class="form_hint">Introduce texto</span>
+                    </li>
 
+                    <li>
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" name="telefono" placeholder="Teléfono" pattern="[0-9]{9}" required /><span class="form_hint">Introduce nueve digitos</span>
+                    </li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span>
+                    </li>
+                    <li>
+                        <label for="semail">Repetir Email</label>
+                        <input type="email" name="semail" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span>
+                    </li>
+                    <li>
+                        <label>Como nos has conocido:</label>
+                        <select>
+                            <option>Prefiero no contestar</option>
+                            <option>Publicidad</option>
+                            <option>Profesionales del sector</option>
+                            <option>Internet</option>
+                            <option>A través de un amigo o conocido</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+  
+            <fieldset class="fiel">
+                <legend class="titulo">
+                    <h2> Datos de facturación </h2>
+                </legend>
+                <ul>
+                    <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
+                    <li id="opcionradio">
+                        <label>Demandante : </label>
+                        <input type="radio" name="opcionradio" id="particular" checked="checked"> Particular
+                        <input type="radio" name="opcionradio" id="empresa">Empresa
+                    </li>
+                    <li>
+                        <label for="EmpresaNombre" id="EmpresaNombre">Nombre</label>
+                        <input type="text" id="iEmpresaNombre" name="iEmpresaNombre" placeholder="Nombre" required /><span class="form_hint">Campo de texto</span>
+                    </li>
+
+                    <li>
+                        <label for="cnif" id="cnif">NIF</label>
+                        <input type="text" id="icnif" name="nif" pattern="^[0-5][0-9]{7}[A-Z]$" placeholder="NIF" required /><span class="form_hint">Campo alfanumerico</span>
+                    </li>
+
+
+
+                    <li>
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" placeholder="Dirección" required /><span class="form_hint">Campo de texto</span>
+                    </li>
+                    <li>
+
+                        <label for="name">Código postal</label>
+                        <input type="text" id="codigo_postal" name="codigo_postal" pattern="^[0-9]{5}$" placeholder="Código postal" required /><span class="form_hint">Campo de texto</span> 
+                    </li>
+                    <li>
+                        <label>Localidad</label>
+                        <select>
+                            <option>Prefiero no contestar</option>
+                            <option>Publicidad</option>
+                            <option>Profesionales del sector</option>
+                            <option>Internet</option>
+                            <option>A través de un amigo o conocido</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label>Provincia</label>
+                        <select>
+                            <option>Prefiero no contestar</option>
+                            <option>Publicidad</option>
+                            <option>Profesionales del sector</option>
+                            <option>Internet</option>
+                            <option>A través de un amigo o conocido</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="name">Pais</label>
+                        <input type="text" placeholder="Pais" required /><span class="form_hint">Campo de texto</span>
+                    </li>
+
+                    <li>
+                        <label for="name">IBAN</label>
+                        <input type="text" placeholder="IBAN" id="iban" name="iban" required /><span class="form_hint">Campo alfanumerico</span>
+                    </li>
+                    <li>
+                        <label>Forma de pago</label>
+                        <select>
+                            <option>Mensual</option>
+                            <option>Trimestral</option>
+                            <option>Anual</option>
+
+                        </select>
+                    </li>
+                    
+                </ul>
+            </fieldset>
+            
+            <fieldset class="fiel">
+                <legend class="titulo">
+                    <h2> Datos de acceso </h2>
+                </legend>
+                <ul>
+
+                    <li>
+                        <label for="name">Usuario</label>
+                        <input type="text" id="Usuario" placeholder="Usuario" disabled="true"required />
+                        <span class="form_hint"></span>
+                    </li>
+                    <li>
+                        <label for="name">Contraseña</label>
+                        <input type="text" placeholder="Contraseña" pattern="[A-Za-z]+" required />
+                        <span class="form_hint">Introduce texto</span>
+                    </li>
+                    <li>
+                        <label for="name">Repetir contraseña</label>
+                        <input type="text" placeholder="Repetir contraseña" pattern="[A-Za-z]+" required />
+                        <span class="form_hint">Introduce texto</span>
+                    </li>
+                </ul>
+
+            </fieldset>
+
+            <div class="pie">
+                <div id="pie_izquierdo">
+                    <p class="text-center">Versión de desarrollo en <a href="https://github.com/chuison/practica-validacion-formularios">GitHub</a> </p>
+                </div>
+                <div id="pie_derecho">
+                    <button class="submit" type="submit">Enviar</button>
+                </div>
+            </div>
+
+        </form>
     </div>
 
-</div>
+
+
+
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+
+    <script type="text/javascript" src="scripts/main.js"></script>
+
+
+    <!-- endbuild -->
 </body>
+
 </html>
