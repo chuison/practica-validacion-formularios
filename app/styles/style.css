@@ -1,54 +1,10 @@
 /* propio */
-fieldset{
-    margin: 0;
-    padding:2;
-    border: 8;
-}
-.fiel{
-    margin-top: 40px;
 
-
-}
-#pie_izquierdo{
-  float: left;
-  width: 500px;
-    
-}
-#pie_derecho{
-    float: left;
-    width: 150px;
-    
-}
-#contenedor{
-
+.contenedor{
+    /* background-color: #EEEEEE; */
     width: 750px;
     margin-right :auto;
     margin-left :auto;
-}
-#cabeza{
-
-    width: 750px;
-    margin-right :auto;
-    margin-left :auto;
-    padding-left: 12px;
-    padding-bottom: 20px;
-   padding-top: 20px;
-}
-#datosre{
-
-    width: 750px;
-    margin-right :auto;
-    margin-left :auto;
-    padding-bottom: 10px;
-
-}
-
-.pie{
-   
-
-
-    margin-top: 50px;
-
 }
 .minombre{
     margin: 5px 0 0 0;
@@ -59,11 +15,11 @@ fieldset{
 .titulo{
     color:green;
     opacity: .4;
+
+
 }
-
-   .error{width:auto; color:red;font-size:small;font-weight: bold;}
-
  
+
 /* === Remove input autofocus webkit === */
 
 *:focus {
@@ -95,20 +51,12 @@ body {
     border-bottom: 1px solid #eee;
     position: relative;
 }
-.contact_form li:last-child {
-    border-bottom: 1px solid #fff;
-
-
-
-}
-/*
 .contact_form li:first-child{
     border-bottom: 1px solid #900;
 
     border-top: 1px solid #900;
 
 }
-
 .contact_form li:last-child {
     border-bottom: 1px solid #900;
 
@@ -116,7 +64,7 @@ body {
 
 }
 
-*/
+
 /* === Form Header === */
 
 .contact_form h2 {
@@ -190,15 +138,15 @@ body {
 /* === HTML5 validation styles === */
 
 .contact_form input:required, .contact_form textarea:required {
-    background: #fff url(../img/red_asterisk.png) no-repeat 98% center;
+    background: #fff url(img/red_asterisk.png) no-repeat 98% center;
 }
 .contact_form input:required:valid, .contact_form textarea:required:valid {
-    background: #fff url(../img/valid.png) no-repeat 98% center;
+    background: #fff url(img/valid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #5cd053;
     border-color: #28921f;
 }
 .contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
-    background: #fff url(../img/invalid.png) no-repeat 98% center;
+    background: #fff url(img/invalid.png) no-repeat 98% center;
     box-shadow: 0 0 5px #d45252;
     border-color: #b03535;
 }
@@ -235,8 +183,8 @@ body {
     color: #28921f;
 }
 /* === Button Style === */
-button.submit {
 
+button.submit {
     background-color: #68b12f;
     background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
     background: -webkit-linear-gradient(top, #68b12f, #50911e);
