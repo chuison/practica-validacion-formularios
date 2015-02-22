@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js">
+
+   <head>
+    <meta charset="utf-8">
+    <title>Práctica validación formularios</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild     -->
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- endbuild -->
+  </head>
+<body>
+<div class="contenedor">
+
+    <form id="" class="contact_form" action="#" id="contact_form" runat="server">
+        <div>
+            <ul>
+                <li>
+
+                    <h1 class="titulo">Práctica validación formulario</h1> <span class="minombre titulo">Luis Álvarez</span>
+
+                </li>   
+                        
+                <li>
+                    <h2>Información de Contacto</h2> <span class="required_notification">* Datos requeridos</span> 
+                </li>
+                <li>
+                    <label for="name">Nombre</label>
+                    <input type="text" placeholder="Nombre" pattern="[A-Za-z]+" required  />
+                     <span class="form_hint">Introduce texto</span> 
+                </li>
+                <li>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" placeholder="Apellido" pattern="[A-Za-z]+" required  /><span class="form_hint">Introduce texto</span>  
+                </li>              
+
+                <li>
+                    <label for="telefono">Teléfono</label>
+                    <input id="telefono" type="tel" placeholder="Teléfono" pattern="[0-9]{9}" required  /><span class="form_hint">Introduce nueve digitos</span>  
+                </li>              
+                <li>
+                    <label for="email">Email</label>
+                    <input id="" type="email" name="email" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span> 
+                </li>
+                 <li>
+                    <label for="email">Repetir Email</label>
+                    <input type="email" name="email" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span> 
+                </li>
+               
+                <li>
+                        <label >Como nos has conocido:</label>
+                            <select>
+                                <option>Prefiero no contestar</option>
+                                <option>Publicidad</option>
+                                <option>Profesionales del sector</option>
+                                <option>Internet</option>
+                                <option>A través de un amigo o conocido</option>
+                            </select>
+                </li>   
+                <li></li>
+                <li>
+                    <h2>Datos de facturación</h2> 
+                <li>
+   
+                    <label >Demandante : </label>
+                      <input  type="radio" name="opcionradio" id="particular" checked="checked">    Particular
+                      <input  type="radio" name="opcionradio" id="empresa">Empresa
+
+                </li>
+                <li>
+                  <label for="name">Nombre</label>
+                    <input type="text" placeholder="Nombre" required  /><span class="form_hint">Campo de texto</span>  
+                </li>
+                <li>
+                <label for="name">NIF</label>
+ 
+                <input type="text" id="dni" maxlength="9"  placeholder="NIF" required />
+                </li> 
+
+
+
+
+
+                <li>
+                    <button class="submit" type="submit">Enviar mensaje</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+    </div>
+ <div>
+        <p class="text-center"><a href="https://github.com/chuison/practica-validacion-formularios"> Aquí</a> esta la versión de desarrollo en GitHub</p>
+
+    </div>
+
+</div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

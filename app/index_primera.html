@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Práctica validación formularios</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+<body>
+
+    <div class="hero-unit">
+        <h3 class="text-success text-c">Práctica validación formularios</h3>
+        <form id="formulario" class="form-horizontal" action="alta.php" method="post" novalidate>
+            <div <div class="panel panel-default panel-success">
+
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">Información de contacto</h3>
+                </div>
+
+
+                <div class="panel-body ">
+
+                    <div class="form-group ">
+                        <label class="text-success col-md-4 text-right">Nombre:</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-success col-md-4 text-right">Apellido:</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-success col-md-4 text-right">Teléfono:</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-success col-md-4 text-right">Email:</label>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Correo electronico">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-success col-md-4 text-right">Otra vez el Email:</label>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Repite el correo electronico">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-success col-md-4 text-right">Como nos has conocido:</label>
+                        <div class="col-md-6">
+                            <select class="form-control">
+                                <option>Prefiero no contestar</option>
+                                <option>Publicidad</option>
+                                <option>Profesionales del sector</option>
+                                <option>Internet</option>
+                                <option>A través de un amigo o conocido</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+
+       <div <div class="panel panel-default panel-success">
+
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">Datos de facturación</h3>
+                </div>
+
+
+                <div class="panel-body ">
+
+
+                    <label class="text-success col-md-4 text-right">Demandante<span class="important">*</span>
+                    </label>
+                    <div class="radio-inline radio-right">
+                        <label>
+                            <input  name="opcionradio" id="particular" checked="checked" type="radio">Particular
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input name="opcionradio" id="empresa" type="radio">Empresa
+                        </label>
+                    </div>
+
+
+              
+
+                <div class="panel-body ">
+
+                    <button type="submit" class="btn btn-default boton">Alta</button>
+                </div>
+            </div>
+
+       </form>
+
+ 
+
+
+    <div>
+        <p class="text-center"><a href="https://github.com/chuison/practica-validacion-formularios"> Aquí</a> esta la versión de desarrollo en GitHub</p>
+
+    </div>
+
+</div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
