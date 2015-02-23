@@ -134,8 +134,10 @@ $('#apellido').on('change', Rellema_Nombre_Particular);
             required: 'Escribir su IBAN',
             iban: 'El IBAN debe ser válido',
         },
-
-     
+        formaPago: {
+            required: 'Debe elegir la forma de pago'
+        },
+        //Datos de acceso
         usuario: {
             required: 'Debe escribir su nombre de usuario',
             minlength: jQuery.validator.format('El tamaño debe ser mínimo {0} caracteres'),

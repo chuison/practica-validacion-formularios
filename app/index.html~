@@ -199,7 +199,7 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
 
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/main_2.js"></script>
 
 
     <!-- endbuild -->
