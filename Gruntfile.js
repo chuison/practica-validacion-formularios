@@ -19,7 +19,7 @@ module.exports = function (grunt) {
   // Configurable paths
   var config = {
     app: 'app',
-    dist: 'dist'
+    dist: '/var/www/html/formulario'
   };
 
   // Define the configuration for all the tasks
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
+   bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
@@ -289,7 +289,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
           ]
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
@@ -318,9 +318,14 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    }
+    },
+    shell: {
+      dist: {
+       command: 'rm -rf <%= config.dist %>/*'
+     }
+   }
   });
-
+  
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
@@ -361,7 +366,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
-    'clean:dist',
+    
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

@@ -82,8 +82,8 @@
                     <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
                     <li id="opcionradio">
                         <label>Demandante : </label>
-                        <input type="radio" name="opcionradio" id="particular" checked="checked"> Particular
-                        <input type="radio" name="opcionradio" id="empresa">Empresa
+                        <input type="radio" name="opcionradio" id="particular" value="particular" checked="checked"> Particular
+                        <input type="radio" name="opcionradio" id="empresa" value="empresa">Empresa
                     </li>
                     <li>
                         <label for="EmpresaNombre" id="EmpresaNombre">Nombre</label>
@@ -92,7 +92,7 @@
 
                     <li>
                         <label for="cnif" id="cnif">NIF</label>
-                        <input type="text" id="icnif" name="nif" pattern="^[0-5][0-9]{7}[A-Z]$" placeholder="NIF" required /><span class="form_hint">Campo alfanumerico</span>
+                        <input type="text" id="icnif" name="icnif"  placeholder="NIF" required /><span class="form_hint">Campo alfanumerico</span>
                     </li>
 
 
@@ -108,27 +108,16 @@
                     </li>
                     <li>
                         <label>Localidad</label>
-                        <select>
-                            <option>Prefiero no contestar</option>
-                            <option>Publicidad</option>
-                            <option>Profesionales del sector</option>
-                            <option>Internet</option>
-                            <option>A través de un amigo o conocido</option>
-                        </select>
+                        <input type="text" id="localidad" name="localidad" placeholder="Localidad" required /><span class="form_hint">Campo de texto</span
                     </li>
                     <li>
                         <label>Provincia</label>
-                        <select>
-                            <option>Prefiero no contestar</option>
-                            <option>Publicidad</option>
-                            <option>Profesionales del sector</option>
-                            <option>Internet</option>
-                            <option>A través de un amigo o conocido</option>
-                        </select>
+                        <input type="text" id="provincia" name="provincia" placeholder="Provincia" required /><span class="form_hint">Campo de texto</span
+                        
                     </li>
                     <li>
                         <label for="name">Pais</label>
-                        <input type="text" name="pais" placeholder="Pais" required /><span class="form_hint">Campo de texto</span>
+                        <input type="text" id="pais" name="pais" placeholder="Pais" required /><span class="form_hint">Campo de texto</span>
                     </li>
 
                     <li>
@@ -161,16 +150,15 @@
                     </li>
                     <li>
                         <label for="name">Contraseña</label>
-                        <input type="text" name="contras" placeholder="Contraseña" pattern="[A-Za-z]+" required />
-                        <span class="form_hint">Introduce texto</span>
+                        <input type="password" id="contraseña" name="contraseña" placeholer="Contraseña" requiered>
+                         <span class="form_hint">Introduce contraseña</span>
                     </li>
                     <li>
                         <label for="name">Repetir contraseña</label>
-                        <input type="text" name="scontras" placeholder="Repetir contraseña" pattern="[A-Za-z]+" required />
-                        <span class="form_hint">Introduce texto</span>
+                       <input type="password" id="scontraseña" name ="scontraseña" placeholer="Contraseña" requiered>
+                     <span class="form_hint">Repetir contraseña</span>
                     </li>
                 </ul>
-
             </fieldset>
 
             <div class="pie">
@@ -194,6 +182,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
+    <script src="bower_components/jquery.complexify.js/jquery.complexify.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

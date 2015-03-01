@@ -39,6 +39,9 @@ $('#apellido').on('change', Rellema_Nombre_Particular);
             onfocusout: false,
             onclick: false,
             rules: {
+                //------------------------------------------
+                // PRIMER BLOQUE : INFORMACION DE CONTACTO
+                //------------------------------------------
                 nombre: {
                     required: true,
                     minlength: 2
@@ -51,38 +54,82 @@ $('#apellido').on('change', Rellema_Nombre_Particular);
                 	required:true,
                 	digits:true
                 },             
+                email: {
+                    required: true,
+                    email: true,
+                    remote: "http://luisalvarez.infenlaces.com/dwec/formulario/php/validar_email_db.php"
+                
+                },
+                semail:{   
+                    equalTo: "#email",
+                    email: true
+                },
+                //---------------------------
+                // FINAL DEL PRIMER BLOQUE 
+                //---------------------------
+                //------------------------------------------
+                // SEGUNDO BLOQUE : DATOS DE FACTURACIÓN
+                //------------------------------------------
+                EmpresaNombre:{
+                    required:true
+                },
+                
+                icnif: {
+                        required: true,
+                        /* 
+                        http://jsfiddle.net/mvandiest/hJGsU/ 
+                        */
+                        cifES: {
+                            depends: function() {
+                                'use strict';
+                                return $('#empresa').is(':checked');
+                            }
+                        },
+                        nifES: {
+                            depends: function() {
+                                'use strict';
+                                return $('#particular').is(':checked')
+                            }
+                       }
+                    },
+                    
+                direccion:{ 
+                    required:true
+                },
                 codigo_postal: {
                     required: true,
                     digits: true
                 },
-                    iban: {
+                localidad:{
+                    required:true
+                },
+                provincia:{
+                    required:true
+                },
+                pais:{
+                    required:true
+                },
+                iban: {
             		required: true,
             		iban: true
         		},
-
-        		email: {
-            		required: true,
-            		email: true,
-            		remote: "http://luisalvarez.infenlaces.com/dwec/php/validar_email_db.php"
-            	
-        		},
-        		semail:{   
-        		    equalTo: "#email",
-            		email: true
-       			},
         		iEmpresaNombre:{   
         		   required:true,
         			 minlength: 4
        			},
-                direccion: "required",
-               
-                cuenta: "cuentabanco",
-                nif: "nif"
+                //---------------------------
+                // FINAL DEL SEGUNDO BLOQUE 
+                //---------------------------
+                //------------------------------------------
+                // TERCER BLOQUE : DATOS DE ACCESO
+                //------------------------------------------
 
-            },
+
+             },
+
 
              messages: {
-        //Información de contacto
+
         nombre: {
             required: 'Debe escribir su nombre',
             lettersonly: 'Escribir sólo letras'
@@ -105,11 +152,10 @@ $('#apellido').on('change', Rellema_Nombre_Particular);
         	required: 'Debe escribir su email',
             equalTo: 'Los dos emails deben de ser iguales'
         },
-        CifNif: {
-            required: 'Debe escribir el identificador fiscal',
+        icnif: {
+            required: 'Debe escribir un identificador fiscal',
             nifES: 'Debe escribir un nif válido',
             cifES: 'Debe escribir un cif válido',
-            remote: 'Ese identificador ya existe'
         },
         iEmpresaNombre: {
             required: 'Escribir el nombre'
@@ -163,6 +209,8 @@ $('#apellido').on('change', Rellema_Nombre_Particular);
         };
         var resultado = ceros + cp;
         $('#codigo_postal').val(resultado);
+        buscarMunicipio($(this).val());
+
 
     });
    
@@ -310,3 +358,133 @@ $.validator.addMethod("iban", function(value, element) {
 	}
 	return cRest === 1;
 }, "Introducir un IBAN valido");
+
+var buscarMunicipio = function(cp) {
+
+    $.ajax({
+        'type': 'POST',
+        'url': 'http://luisalvarez.infenlaces.com/dwec/php/buscar_municipio_db.php',
+        'data': {
+            inputCp: cp
+        },
+        'dataType': 'json'
+    }).done(function(data) {
+        //console.log('AJAX ejecutado correctamente');
+        if (data === null) {
+            console.log('no se encuentra el cp');
+            $('#provincia').val('');
+            $('#localidad').val('');
+            $('#pais').val('');
+        } else {
+            console.log(data[0]);
+            $('#provincia').val(data[0].provincia);
+            $('#provincia-error').text('');
+            $('#localidad').val(data[0].municipio);
+            $('#localidad-error').text('');
+            $('#pais').val('España');
+            $('#pais-error').text('');
+        }
+    }).fail(function(err) {
+        console.log('AJAX no se ha ejecutado correctamente: ' + err);
+    });
+};
+
+
+
+        $(function () {
+            $("#txtPassword").complexify({}, function (valid, complexity) {
+                $("#progressbar" ).progressbar({
+                  value: complexity
+                });
+            });
+        });
+
+
+/*
+ * Código de identificación fiscal ( CIF ) is the tax identification code for Spanish legal entities
+ * Further rules can be found in Spanish on http://es.wikipedia.org/wiki/C%C3%B3digo_de_identificaci%C3%B3n_fiscal
+ */
+$.validator.addMethod( "cifES", function( value ) {
+    "use strict";
+
+    var num = [],
+        controlDigit, sum, i, count, tmp, secondDigit;
+
+    value = value.toUpperCase();
+
+    // Quick format test
+    if ( !value.match( "((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)" ) ) {
+        return false;
+    }
+
+    for ( i = 0; i < 9; i++ ) {
+        num[ i ] = parseInt( value.charAt( i ), 10 );
+    }
+
+    // Algorithm for checking CIF codes
+    sum = num[ 2 ] + num[ 4 ] + num[ 6 ];
+    for ( count = 1; count < 8; count += 2 ) {
+        tmp = ( 2 * num[ count ] ).toString();
+        secondDigit = tmp.charAt( 1 );
+
+        sum += parseInt( tmp.charAt( 0 ), 10 ) + ( secondDigit === "" ? 0 : parseInt( secondDigit, 10 ) );
+    }
+
+    /* The first (position 1) is a letter following the following criteria:
+     *  A. Corporations
+     *  B. LLCs
+     *  C. General partnerships
+     *  D. Companies limited partnerships
+     *  E. Communities of goods
+     *  F. Cooperative Societies
+     *  G. Associations
+     *  H. Communities of homeowners in horizontal property regime
+     *  J. Civil Societies
+     *  K. Old format
+     *  L. Old format
+     *  M. Old format
+     *  N. Nonresident entities
+     *  P. Local authorities
+     *  Q. Autonomous bodies, state or not, and the like, and congregations and religious institutions
+     *  R. Congregations and religious institutions (since 2008 ORDER EHA/451/2008)
+     *  S. Organs of State Administration and regions
+     *  V. Agrarian Transformation
+     *  W. Permanent establishments of non-resident in Spain
+     */
+    if ( /^[ABCDEFGHJNPQRSUVW]{1}/.test( value ) ) {
+        sum += "";
+        controlDigit = 10 - parseInt( sum.charAt( sum.length - 1 ), 10 );
+        value += controlDigit;
+        return ( num[ 8 ].toString() === String.fromCharCode( 64 + controlDigit ) || num[ 8 ].toString() === value.charAt( value.length - 1 ) );
+    }
+
+    return false;
+
+}, "Please specify a valid CIF number." );
+
+
+/*
+ * The Número de Identificación Fiscal ( NIF ) is the way tax identification used in Spain for individuals
+ */
+$.validator.addMethod( "nifES", function( value ) {
+    "use strict";
+
+    value = value.toUpperCase();
+
+    // Basic format test
+    if ( !value.match("((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)") ) {
+        return false;
+    }
+
+    // Test NIF
+    if ( /^[0-9]{8}[A-Z]{1}$/.test( value ) ) {
+        return ( "TRWAGMYFPDXBNJZSQVHLCKE".charAt( value.substring( 8, 0 ) % 23 ) === value.charAt( 8 ) );
+    }
+    // Test specials NIF (starts with K, L or M)
+    if ( /^[KLM]{1}/.test( value ) ) {
+        return ( value[ 8 ] === String.fromCharCode( 64 ) );
+    }
+
+    return false;
+
+}, "Please specify a valid NIF number." );

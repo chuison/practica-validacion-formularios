@@ -61,7 +61,7 @@ fieldset{
     opacity: .4;
 }
 
-   .error{width:auto; color:red;font-size:small;font-weight: bold;}
+.error{width:auto; color:red;font-size:small;font-weight: bold; float:right;}
 
  
 /* === Remove input autofocus webkit === */
