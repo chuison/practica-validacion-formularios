@@ -13,171 +13,156 @@
     <!-- endbower -->
     <!-- endbuild     -->
     <link rel="stylesheet" href="styles/main.css">
-
     <!-- endbuild -->
 </head>
-
 <body>
-
-    <div id="contenedor">
-
-
+    <div id="main">
         <div id="cabeza" class="contact_form">
-
             <h2>Práctica validación formulario</h2>
             <span class="minombre titulo">Luis Álvarez Romero</span>
         </div>
         <form id="formulario" class="contact_form" novalidate action="accion.php" method="post">
+            <form id="formulario" class="contact_form" action="#" id="contact_form" runat="server">
+                <fieldset>
+                    <legend class="titulo">
+                        <h2> Información de contacto </h2>
+                    </legend>
+                    <ul>
+                        <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
+                        <li></li>
+                        <li>
+                            <label for="name">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre" pattern="[A-Za-z]+" required />
+                            <span class=""></span>
+                        </li>
+                        <li>
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Apellido" pattern="[A-Za-z]+" required /><span class="form_hint">Introduce texto</span>
+                        </li>
 
-            
-       
-        <form id="formulario" class="contact_form" action="#" id="contact_form" runat="server">
-            <fieldset>
-                <legend class="titulo">
-                    <h2> Información de contacto </h2>
-                </legend>
-                <ul>
-                    <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
-                    <li></li>
-                    <li>
-                        <label for="name">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" pattern="[A-Za-z]+" required />
-                        <span class=""></span>
-                    </li>
-                    <li>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" pattern="[A-Za-z]+" required /><span class="form_hint">Introduce texto</span>
-                    </li>
+                        <li>
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" name="telefono" placeholder="Teléfono" pattern="[0-9]{9}" required /><span class="form_hint">Introduce nueve digitos</span>
+                        </li>
+                        <li>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span>
+                        </li>
+                        <li>
+                            <label for="semail">Repetir Email</label>
+                            <input type="email" name="semail" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span>
+                        </li>
+                        <li>
+                            <label>Como nos has conocido:</label>
+                            <select>
+                                <option>Prefiero no contestar</option>
+                                <option>Publicidad</option>
+                                <option>Profesionales del sector</option>
+                                <option>Internet</option>
+                                <option>A través de un amigo o conocido</option>
+                            </select>
+                        </li>
+                    </ul>
+                </fieldset>
 
-                    <li>
-                        <label for="telefono">Teléfono</label>
-                        <input type="text" name="telefono" placeholder="Teléfono" pattern="[0-9]{9}" required /><span class="form_hint">Introduce nueve digitos</span>
-                    </li>
-                    <li>
-                        <label for="email">Email</label>
-                        <input id="email" type="email" name="email" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span>
-                    </li>
-                    <li>
-                        <label for="semail">Repetir Email</label>
-                        <input type="email" name="semail" placeholder="email" required /> <span class="form_hint">Formato correcto: "nombre@algunacosa.com"</span>
-                    </li>
-                    <li>
-                        <label>Como nos has conocido:</label>
-                        <select>
-                            <option>Prefiero no contestar</option>
-                            <option>Publicidad</option>
-                            <option>Profesionales del sector</option>
-                            <option>Internet</option>
-                            <option>A través de un amigo o conocido</option>
-                        </select>
-                    </li>
-                </ul>
-            </fieldset>
-  
-            <fieldset class="fiel">
-                <legend class="titulo">
-                    <h2> Datos de facturación </h2>
-                </legend>
-                <ul>
-                    <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
-                    <li id="opcionradio">
-                        <label>Demandante : </label>
-                        <input type="radio" name="opcionradio" id="particular" value="particular" checked="checked"> Particular
-                        <input type="radio" name="opcionradio" id="empresa" value="empresa">Empresa
-                    </li>
-                    <li>
-                        <label for="EmpresaNombre" id="EmpresaNombre">Nombre</label>
-                        <input type="text" id="iEmpresaNombre" name="iEmpresaNombre" placeholder="Nombre" required /><span class="form_hint">Campo de texto</span>
-                    </li>
+                <fieldset class="fiel">
+                    <legend class="titulo">
+                        <h2> Datos de facturación </h2>
+                    </legend>
+                    <ul>
+                        <div id="datosre"> <span class="required_notification">* Datos requeridos</span> </div>
+                        <li id="opcionradio">
+                            <label>Demandante : </label>
+                            <input type="radio" name="opcionradio" id="particular" value="particular" checked="checked"> Particular
+                            <input type="radio" name="opcionradio" id="empresa" value="empresa">Empresa
+                        </li>
+                        <li>
+                            <label for="EmpresaNombre" id="EmpresaNombre">Nombre</label>
+                            <input type="text" id="iEmpresaNombre" name="iEmpresaNombre" placeholder="Nombre" required /><span class="form_hint">Campo de texto</span>
+                        </li>
 
-                    <li>
-                        <label for="cnif" id="cnif">NIF</label>
-                        <input type="text" id="icnif" name="icnif"  placeholder="NIF" required /><span class="form_hint">Campo alfanumerico</span>
-                    </li>
+                        <li>
+                            <label for="cnif" id="cnif">NIF</label>
+                            <input type="text" id="icnif" name="icnif" placeholder="NIF" required /><span class="form_hint">Campo alfanumerico</span>
+                        </li>
+                        <li>
+                            <label for="direccion">Dirección</label>
+                            <input type="text" id="direccion" name="direccion" placeholder="Dirección" required /><span class="form_hint">Campo de texto</span>
+                        </li>
+                        <li>
+                            <label for="name">Código postal</label>
+                            <input type="text" id="codigo_postal" name="codigo_postal" pattern="^[0-9]{5}$" placeholder="Código postal" required /><span class="form_hint">Campo de texto</span>
+                        </li>
+                        <li>
+                            <label>Localidad</label>
+                            <input type="text" id="localidad" name="localidad" placeholder="Localidad" required /><span class="form_hint">Campo de texto</span>
+                        </li>
+                        <li>
+                            <label>Provincia</label>
+                            <input type="text" id="provincia" name="provincia" placeholder="Provincia" required /><span class="form_hint">Campo de texto</span>
 
+                        </li>
+                        <li>
+                            <label for="name">Pais</label>
+                            <input type="text" id="pais" name="pais" placeholder="Pais" required /><span class="form_hint">Campo de texto</span>
+                        </li>
+                        <li>
+                            <label for="name">IBAN</label>
+                            <input type="text" placeholder="IBAN" id="iban" name="iban" required /><span class="form_hint">Campo alfanumerico</span>
+                        </li>
+                        <li>
+                            <label>Forma de pago</label>
+                            <select>
+                                <option>Mensual</option>
+                                <option>Trimestral</option>
+                                <option>Anual</option>
+                            </select>
+                        </li>
+                    </ul>
+                </fieldset>
 
+                <fieldset class="fiel">
+                    <legend class="titulo">
+                        <h2> Datos de acceso </h2>
+                    </legend>
+                    <ul>
+                        <li>
+                            <label for="name">Usuario</label>
+                            <input type="text" id="Usuario" placeholder="Usuario" disabled="true" required />
+                            <span class="form_hint"></span>
+                        </li>
+                        <li>
+                            <label for="name">Contraseña</label>
+                            <div class="row pass">
+                                <input type="password" id="contraseña" name="contraseña" placeholer="Contraseña" requiered>
+                                <span class="form_hint">Introduce contraseña</span>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="name">Repetir contraseña</label>
+                            <div class="row pass">
+                                <input type="password" id="scontraseña" name="scontraseña" placeholer="Contraseña" requiered>
+                                <span class="form_hint">Repetir contraseña</span>
+                            </div>
+                        </li>
+                    </ul>
 
-                    <li>
-                        <label for="direccion">Dirección</label>
-                        <input type="text" id="direccion" name="direccion" placeholder="Dirección" required /><span class="form_hint">Campo de texto</span>
-                    </li>
-                    <li>
+                    <div id="reloj">
+                        <div class="arrowCap"></div>
+                        <div class="arrow"></div>
+                    </div>
+                </fieldset>
 
-                        <label for="name">Código postal</label>
-                        <input type="text" id="codigo_postal" name="codigo_postal" pattern="^[0-9]{5}$" placeholder="Código postal" required /><span class="form_hint">Campo de texto</span> 
-                    </li>
-                    <li>
-                        <label>Localidad</label>
-                        <input type="text" id="localidad" name="localidad" placeholder="Localidad" required /><span class="form_hint">Campo de texto</span
-                    </li>
-                    <li>
-                        <label>Provincia</label>
-                        <input type="text" id="provincia" name="provincia" placeholder="Provincia" required /><span class="form_hint">Campo de texto</span
-                        
-                    </li>
-                    <li>
-                        <label for="name">Pais</label>
-                        <input type="text" id="pais" name="pais" placeholder="Pais" required /><span class="form_hint">Campo de texto</span>
-                    </li>
-
-                    <li>
-                        <label for="name">IBAN</label>
-                        <input type="text" placeholder="IBAN" id="iban" name="iban" required /><span class="form_hint">Campo alfanumerico</span>
-                    </li>
-                    <li>
-                        <label>Forma de pago</label>
-                        <select>
-                            <option>Mensual</option>
-                            <option>Trimestral</option>
-                            <option>Anual</option>
-
-                        </select>
-                    </li>
-                    
-                </ul>
-            </fieldset>
-            
-            <fieldset class="fiel">
-                <legend class="titulo">
-                    <h2> Datos de acceso </h2>
-                </legend>
-                <ul>
-
-                    <li>
-                        <label for="name">Usuario</label>
-                        <input type="text" id="Usuario" placeholder="Usuario" disabled="true"required />
-                        <span class="form_hint"></span>
-                    </li>
-                    <li>
-                        <label for="name">Contraseña</label>
-                        <input type="password" id="contraseña" name="contraseña" placeholer="Contraseña" requiered>
-                         <span class="form_hint">Introduce contraseña</span>
-                    </li>
-                    <li>
-                        <label for="name">Repetir contraseña</label>
-                       <input type="password" id="scontraseña" name ="scontraseña" placeholer="Contraseña" requiered>
-                     <span class="form_hint">Repetir contraseña</span>
-                    </li>
-                </ul>
-            </fieldset>
-
-            <div class="pie">
-                <div id="pie_izquierdo">
-                    <p class="text-center">Versión de desarrollo en <a href="https://github.com/chuison/practica-validacion-formularios">GitHub</a> </p>
+                <div class="pie">
+                    <div id="pie_izquierdo">
+                        <p class="text-center">Versión de desarrollo en <a href="https://github.com/chuison/practica-validacion-formularios">GitHub</a> </p>
+                    </div>
+                    <div id="pie_derecho">
+                        <button class="submit" type="submit">Enviar</button>
+                    </div>
                 </div>
-                <div id="pie_derecho">
-                    <button class="submit" type="submit">Enviar</button>
-                </div>
-            </div>
-
-        </form>
+            </form>
     </div>
-
-
-
-
-
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -185,13 +170,8 @@
     <script src="bower_components/jquery.complexify.js/jquery.complexify.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
     <!-- build:js({app,.tmp}) scripts/main.js -->
-
     <script type="text/javascript" src="scripts/main.js"></script>
-
-
     <!-- endbuild -->
 </body>
-
 </html>

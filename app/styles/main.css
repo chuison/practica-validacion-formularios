@@ -19,7 +19,7 @@ fieldset{
     width: 150px;
     
 }
-#contenedor{
+#main{
 
     width: 850px;
     margin-right :auto;
@@ -61,7 +61,7 @@ fieldset{
     opacity: .4;
 }
 
-.error{width:auto; color:red;font-size:small;font-weight: bold; float:right;}
+.error{width:auto; color:red;font-size:small;font-weight: bold;}
 
  
 /* === Remove input autofocus webkit === */
@@ -273,4 +273,62 @@ button.submit:active {
     -moz-box-shadow: 0 0 10px 5px #356b0b inset;
     -ms-box-shadow: 0 0 10px 5px #356b0b inset;
     -o-box-shadow: 0 0 10px 5px #356b0b inset;
+}
+
+
+/* RELOJ */
+
+
+#reloj {
+    width:165px;
+    height:165px;
+    background:url('../img/form_bg_3.png') no-repeat;
+    padding-top: 0px;
+    margin: 20px auto;
+
+}
+
+
+/* Manecilla */
+
+#main form #reloj .arrow{
+    background: url("../img/arrow.png")  no-repeat -10px 0;
+    height: 120px;
+    left: 78px;
+    position: relative;
+    /*top: 1405px;
+    width: 10px;
+    */
+    width: 10px;
+    top:0px;
+    /* Defining a smooth CSS3 animation for turning the arrow */
+    
+    -moz-transition:0.3s;
+    -webkit-transition:0.3s;
+    -o-transition:0.3s;
+    -ms-transition:0.3s;
+    transition:0.3s;
+    
+    /* Putting the arrow in its initial position */
+    
+    -moz-transform: rotate(-134deg);
+    -webkit-transform: rotate(-134deg);
+    -o-transform: rotate(-134deg);
+    -ms-transform: rotate(-134deg);
+    transform: rotate(-134deg);
+}
+
+/* punto central */
+
+#main form #reloj .arrowCap{
+    background: url("../img/arrow.png") no-repeat -43px 0;
+    height: 20px;
+    left: 70px;
+    position: relative;
+    /*top: 1455px;
+    width: 20px;
+    */
+    top:73px;
+    width: 20px;
+    z-index: 10;
 }
